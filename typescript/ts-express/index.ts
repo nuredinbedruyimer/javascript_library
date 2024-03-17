@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import CustomeError from "./utils/error";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
+import conectDB from "./databases/databases";
 
 const app = express();
 
@@ -18,4 +19,5 @@ app.use(errorMiddleware);
 
 app.listen(port, () => {
   console.log(`Server Running on Port: ${port}`);
+  conectDB();
 });

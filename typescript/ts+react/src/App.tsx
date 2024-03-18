@@ -1,6 +1,10 @@
 import "./App.css";
-import Counter from "./components/useEffect/Counter";
-import PostsList from "./components/useEffect/PostsList";
+// import {
+//   UserProfile,
+//   UserProvider,
+// } from "./components/useContext/UseContext";
+// import Counter from "./components/useEffect/Counter";
+// import PostsList from "./components/useEffect/PostsList";
 
 // import Counter from "./components/useState/Counter";
 // import UseStateWithArray from "./components/useState/UseStateWithArray";
@@ -14,7 +18,7 @@ function App() {
       {/* <UseStateWithObject /> */}
       {/* <UseStateWithArray /> */}
       {/* <Counter /> */}
-      <PostsList />
+      {/* <PostsList /> */}
     </div>
   );
 }

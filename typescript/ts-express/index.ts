@@ -2,13 +2,13 @@ import express, { NextFunction, Request, Response } from "express";
 import CustomeError from "./utils/error";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
 import conectDB from "./databases/databases";
-import { registerUserController } from "./controllers/userController";
+import userRoutes from "./routes/userRoutes";
 
 const app = express();
 
 let port = process.env.PORT || 5000;
 
-app.post("/api/v1/register", registerUserController);
+app.use("/api/v1/user", userRoutes);
 
 app.get("/fetch", (req: Request, res: Response, next: NextFunction) => {
   try {

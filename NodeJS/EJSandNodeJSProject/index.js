@@ -1,7 +1,6 @@
 import express, { urlencoded } from "express";
 import connectDB from "./databases/database.js";
 import session from "express-session";
-
 const app = express();
 
 app.use(
@@ -30,7 +29,6 @@ app.use((req, res, next) => {
 });
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
 let port = process.env.PORT || 8000;
 app.get("/", (req, res) => {
   const userData = { name: "Nuredin", language: "JavaScript" };

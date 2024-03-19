@@ -32,6 +32,10 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 let port = process.env.PORT || 8000;
+app.get("/", (req, res) => {
+  const userData = { name: "Nuredin", language: "JavaScript" };
+  res.render("index", userData);
+});
 app.get("/test", (req, res) => {
   res.status(200).json({
     success: true,

@@ -2,7 +2,7 @@
 <div class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 mt-12">
   <h2 class="text-2xl font-semibold mb-4 text-center">Add User</h2>
 
-  <form>
+  <form action="/adduser" method="post" enctype="multipart/form-data">
     <div class="mb-4">
       <label for="name" class="block text-gray-700 font-medium mb-2"
         >Name</label
@@ -51,6 +51,7 @@
         aria-describedby="file_input_help"
         id="file_input"
         type="file"
+        name="file"
       />
       <p
         class="mt-1 text-sm text-gray-500 dark:text-gray-300"

@@ -1,6 +1,47 @@
 <%- include("./layout/header.ejs") %>
-<div class="flex w-full justify-center mt-12">
+<script>
+  // Function to close the alert
+  function closeAlert() {
+    var alertElement = document.getElementById("alert");
+    alertElement.style.display = "none"; // Hides the alert
+  }
+</script>
+<div class="flex flex-col items-center w-full justify-center mt-12">
+  <% if (message) { %>
+  <div
+    id="alert"
+    class="flex items-center justify-between p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-lg"
+    role="alert"
+  >
+    <div class="flex gap-6">
+      <svg
+        class="w-5 h-5 mr-2 text-green-700"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path
+          d="M10 2a8 8 0 11-8 8 8 8 0 018-8zm-1 4h2v4h-2zm0 6h2v2h-2z"
+        ></path>
+      </svg>
+
+      <!-- Success Message -->
+      <span><%= message.message %></span>
+    </div>
+
+    <!-- Close Button (FontAwesome Cross) -->
+    <button
+      onclick="closeAlert()"
+      class="ml-4 text-green-700 hover:text-green-900"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <% } %>
+
   <div class="bg-white rounded-lg shadow-md max-w-6xl overflow-x-auto">
+    <% if (users && users.length >= 1) { %>
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
         <tr>
@@ -40,65 +81,43 @@
         </tr>
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
+        <% users.forEach((element, index) => { %>
         <tr>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <%= index + 1 %>
+          </td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-            John Doe
+            <%= element.name %>
           </td>
           <td class="px-6 py-4 whitespace-nowrap">
             <img
-              src="https://via.placeholder.com/40"
+              src="<%= element.image %>"
               alt="User Avatar"
               class="h-10 w-10 rounded-full"
             />
           </td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-            john.doe@example.com
+            <%= element.email %>
           </td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-            123-456-7890
+            <%= element.phone %>
           </td>
           <td
             class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
           >
-            <a href="#" class="text-indigo-600 hover:text-indigo-900 px-2"
-              ><i class="fas fa-edit"></i
-            ></a>
-            <a href="#" class="text-red-600 hover:text-red-900 px-2"
-              ><i class="fas fa-trash-alt"></i
-            ></a>
+          <a href="/update/<%= element.id %>" class="text-indigo-600 hover:text-indigo-900 px-2">
+            <i class="fas fa-edit"></i>
+          </a>
+
+            <a href="/users/delete/<%= element.id %>" class="text-red-600 hover:text-red-900 px-2">
+              <i class="fas fa-trash-alt"></i>
           </td>
         </tr>
-        <tr>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2</td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-            Jane Smith
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <img
-              src="https://via.placeholder.com/40"
-              alt="User Avatar"
-              class="h-10 w-10 rounded-full"
-            />
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-            jane.smith@example.com
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-            987-654-3210
-          </td>
-          <td
-            class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-          >
-            <a href="#" class="text-indigo-600 hover:text-indigo-900 px-2"
-              ><i class="fas fa-edit"></i
-            ></a>
-            <a href="#" class="text-red-600 hover:text-red-900 px-2"
-              ><i class="fas fa-trash-alt"></i
-            ></a>
-          </td>
-        </tr>
+        <% }) %>
       </tbody>
     </table>
+    <% } else { %>
+    <h1>No User Found</h1>
+    <% } %>
   </div>
 </div>

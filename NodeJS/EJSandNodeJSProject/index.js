@@ -32,6 +32,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 let port = process.env.PORT || 8000;
 app.use("", userRouter);
+app.use(express.static("uploads"));
 
 app.listen(port, () => {
   console.log(`server running on : http://localhost:${port}`);

@@ -45,8 +45,16 @@ router.post("/adduser", upload, async (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
-  res.render("index", { title: "EJS" });
+router.get("/", async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+    res.render("index", { title: "EJS", users: allUsers });
+  } catch (error) {
+    console.log("Error In Fetching ALl User : ", error);
+    res.status(500).json({
+      message: "Fetching Users Fail",
+    });
+  }
 });
 router.get("/adduser", (req, res) => {
   res.render("add_user", { title: "AddUser" });

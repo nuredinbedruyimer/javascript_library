@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM and JavaScript</title>
+  </head>
+  <body>
+    <h1>I Am Header Here</h1>
+    <button onclick="handleClick()">You Can Get Other Thing</button>
+
+    <script>
+      const handleClick = () => {
+        const url = "https://event-space.vercel.app/";
+        const options = "height=300,width=400";
+        const openWindow = window.open(url, "", options);
+
+        setTimeout(() => {
+          openWindow.close();
+        }, 5000);
+      };
+    </script>
+  </body>
+</html>

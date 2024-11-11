@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      span {
+        color: green;
+        font-size: 28px;
+        font-weight: 900;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: aliceblue;
+        margin-bottom: 2rem;
+      }
+      .cards {
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card {
+        width: auto;
+        border: 2px solid skyblue;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: white;
+      }
+      h1,
+      h2 {
+        color: blue;
+        font-weight: 700;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main" id="main">
+      <h1 id="heading">Access Document Object Model</h1>
+
+      <div class="cards" id="cards">
+        <div class="card" id="cardByID">
+          <h2>Get Element By Using <span>getElementById</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            sunt.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            velit.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Get Element By Using <span>getElementByClassName</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            sunt.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            velit.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Get Element By Using <span>getElementTagName</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            sunt.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            velit.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Get Element By Using <span>querySelector</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            sunt.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            velit.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Get Element By Using <span>querySelectorAll</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            sunt.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo,
+            velit.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      <!-- Accessing And Manipulating The Dom Using Get Element By Id -->
+
+      const cardByID = document.getElementById("cardByID");
+      cardByID.style.color = "white";
+      cardByID.style.backgroundColor = "green";
+
+      const cardByClass = document.getElementsByClassName("card");
+
+      for (let index = 0; index < cardByClass.length; index++) {
+        cardByClass[index].style.backgroundColor = "skyblue";
+        cardByClass[index].style.color = "black";
+        cardByClass[index].style.borderRadius = "4px";
+        cardByClass[index].style.gap = "30px";
+      }
+
+      const allParagraphElement = document.getElementsByTagName("p");
+      for (let index = 0; index < allParagraphElement.length; index++) {
+        allParagraphElement[index].style.fontWeight = "800";
+        allParagraphElement[index].style.fontSize = "14px";
+      }
+
+      console.log(cardByClass);
+    </script>
+  </body>
+</html>

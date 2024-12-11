@@ -46,3 +46,9 @@ let userInfo = {
     email: "nure@gmail.com",
 };
 console.log("Undefine For non Existing Field Accessing : ", userInfo.password);
+let productID = 12;
+productID = "Some String Value Also Possible";
+console.log("Product ID : ", productID);
+let statusValue;
+statusValue = "pending";
+console.log("This is Literal Union Type : ", statusValue);

@@ -129,3 +129,7 @@ let reverseStatus = {
 console.log("Function Call For Number Input :", processData(input, reverseStatus));
 console.log("Function Call For String Input And Reverse True :", processData(input, reverseStatus));
 console.log("Function Call For String Input And Reverse True :", processData(input, { reverse: false }));
+let add = (numOne, numTwo) => {
+    return numOne + numTwo;
+};
+console.log(add(20, 120));

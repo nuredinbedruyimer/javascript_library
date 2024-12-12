@@ -206,3 +206,11 @@ console.log(
   "Function Call For String Input And Reverse True :",
   processData(input, { reverse: false })
 );
+
+type MathFunction = (a: number, b: number) => number;
+
+let add: MathFunction = (numOne, numTwo) => {
+  return numOne + numTwo;
+};
+
+console.log(add(20, 120));

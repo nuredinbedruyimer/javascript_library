@@ -105,3 +105,27 @@ const getProductUsingIDAlias = ({ productID }) => {
 };
 let fetchedProductTwo = getProductUsingIDAlias({ productID: 20 });
 console.log("Fetched Product Using ID Using Alias : ", fetchedProductOne);
+//  process Data
+function processData(inputData, { reverse }) {
+    let returnValue;
+    if (typeof inputData === "number") {
+        returnValue = 2 * inputData;
+    }
+    else {
+        if (reverse === true) {
+            returnValue = inputData.split("").reverse().join("").toUpperCase();
+        }
+        else {
+            returnValue = inputData.toUpperCase();
+        }
+    }
+    return returnValue;
+}
+//  number, reverse(true or false) does not matter
+let input = "Nuredin Bedru";
+let reverseStatus = {
+    reverse: true,
+};
+console.log("Function Call For Number Input :", processData(input, reverseStatus));
+console.log("Function Call For String Input And Reverse True :", processData(input, reverseStatus));
+console.log("Function Call For String Input And Reverse True :", processData(input, { reverse: false }));

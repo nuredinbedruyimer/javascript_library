@@ -86,3 +86,40 @@ const printStaffDetail: PrintStaffDetailType = (staff) => {
 for (let emp of employeesList) {
   printStaffDetail(emp);
 }
+
+// Type Intersection
+
+type User = {
+  id: string;
+  username: string;
+  email: string;
+};
+type Admin = {
+  isAdmin: boolean;
+  numberOfOrder: number;
+};
+
+type AdminUser = Admin & User;
+
+let userOne: User = {
+  id: "1",
+  username: "Luffy",
+  email: "luffy@onepeice.series",
+};
+
+let adminUser: AdminUser = {
+  id: "2",
+  username: "Midoriya",
+  email: "midoriya@hero.series",
+  isAdmin: true,
+  numberOfOrder: 23,
+};
+
+let display = (user: User | AdminUser) => {
+  if ("isAdmin" in user) {
+    console.log(`User : ${user.username} is Admin`);
+  } else {
+    console.log(`User :  ${user.username} is Not Admin`);
+  }
+};
+display(adminUser);

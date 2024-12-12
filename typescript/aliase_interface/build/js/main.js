@@ -54,3 +54,24 @@ const printStaffDetail = (staff) => {
 for (let emp of employeesList) {
     printStaffDetail(emp);
 }
+let userOne = {
+    id: "1",
+    username: "Luffy",
+    email: "luffy@onepeice.series",
+};
+let adminUser = {
+    id: "2",
+    username: "Midoriya",
+    email: "midoriya@hero.series",
+    isAdmin: true,
+    numberOfOrder: 23,
+};
+let display = (user) => {
+    if ("isAdmin" in user) {
+        console.log(`User : ${user.username} is Admin`);
+    }
+    else {
+        console.log(`User :  ${user.username} is Not Admin`);
+    }
+};
+display(adminUser);

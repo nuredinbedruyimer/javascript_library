@@ -51,6 +51,31 @@ console.log(moreMixedArray);
 // We can copy the less mixed Array To The more Mixed It Is Possoble
 let userTuple = ["Nuredin Bedru", true, 22];
 console.log("User : ", userTuple);
+// object
+let book1 = {
+    title: "Atomic Habit",
+    auther: {
+        name: "James Clear",
+        age: 45,
+    },
+};
+let book2 = {
+    title: "You Will Win ",
+    auther: {
+        name: "Shiv Khera",
+        age: 65,
+    },
+};
+let book3 = {
+    auther: {
+        name: "No Auther",
+        age: 24,
+    },
+};
+let books = [book1, book2, book3];
+for (let book of books) {
+    console.log("Book Title : ", book === null || book === void 0 ? void 0 : book.title);
+}
 let userOne = {
     username: "Monkey D Luffy",
     email: "email@email.com",

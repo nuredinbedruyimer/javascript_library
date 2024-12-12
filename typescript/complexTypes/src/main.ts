@@ -68,6 +68,39 @@ console.log("User : ", userTuple);
 
 // object
 
+let book1 = {
+  title: "Atomic Habit",
+  auther: {
+    name: "James Clear",
+    age: 45,
+  },
+};
+let book2 = {
+  title: "You Will Win ",
+  auther: {
+    name: "Shiv Khera",
+    age: 65,
+  },
+};
+let book3 = {
+  auther: {
+    name: "No Auther",
+    age: 24,
+  },
+};
+
+let books: {
+  title?: string | undefined;
+  auther: {
+    name: string | undefined;
+    age: number | undefined;
+  };
+}[] = [book1, book2, book3];
+
+for (let book of books) {
+  console.log("Book Title : ", book?.title);
+}
+
 type User = {
   username: string;
   email?: string;

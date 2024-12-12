@@ -61,14 +61,104 @@ console.log("Selected Name : ", selectedNames);
 function calculateTotalPrice(
   itemsCount: number,
   unitPrice: number = 1,
-  percentage: number = 0
+  percentage?: number
 ): number {
-  let totalPrice: number = (unitPrice || 0) * itemsCount;
+  let totalPrice: number = unitPrice * itemsCount;
   let discount: number = (percentage || 0) * totalPrice;
 
   return totalPrice - discount;
 }
 
-let totalSpent: number = calculateTotalPrice(100, 20);
+let totalSpent: number = calculateTotalPrice(100);
 
 console.log("Total Price : ", totalSpent);
+
+// Rest Parameters
+
+function avarageScore(
+  studentName: string,
+  ...scores: number[]
+): [string, number] {
+  let newScores: number[] = scores.map((score) => {
+    if (score <= 90) {
+      return score + 10;
+    } else {
+      return score;
+    }
+  });
+
+  let totalScore: number = newScores.reduce(
+    (previousValue: number, currValue: number) => {
+      return previousValue + currValue;
+    },
+    0
+  );
+
+  return [studentName, totalScore / scores.length];
+}
+
+let [stuName, avarage]: [string, number] = avarageScore(
+  "Nuredin Bedru",
+  89,
+  98,
+  78,
+  89.9,
+  67
+);
+console.log(stuName, avarage);
+
+function processInput(inputvalue: string | number) {
+  if (typeof inputvalue === "number") {
+    let doubledValue: number = 2 * inputvalue;
+    console.log("Doubled Value : ", doubledValue);
+  } else if (typeof inputvalue === "string") {
+    let transformedString: string = inputvalue.toUpperCase();
+    console.log("Transformed String : ", transformedString);
+  } else {
+    console.log("Invalid Input Type");
+  }
+}
+
+processInput(200);
+processInput("Jhon");
+// processInput(true)
+
+// Object as Parameter and return type Version One(withbout alias )
+const getProductUsingID = ({
+  productID,
+}: {
+  productID: string | number;
+}): { productID: string | number; productName: string; quentity: number } => {
+  return {
+    productID: productID,
+    productName: "productOneName",
+    quentity: 20,
+  };
+};
+
+let fetchedProductOne: {
+  productID: string | number;
+  productName: string;
+  quentity: number;
+} = getProductUsingID({ productID: 20 });
+console.log("Fetched Product Using ID : ", fetchedProductOne);
+
+// Object as Parameter and return type Version One(With Alias)
+type getProductUsingID = {
+  productID: string | number;
+};
+type Product = {
+  productID: string | number;
+  productName: string;
+  quentity: number;
+};
+const getProductUsingIDAlias = ({ productID }: getProductUsingID): Product => {
+  return {
+    productID: productID,
+    productName: "productOneName",
+    quentity: 20,
+  };
+};
+
+let fetchedProductTwo: Product = getProductUsingIDAlias({ productID: 20 });
+console.log("Fetched Product Using ID Using Alias : ", fetchedProductOne);

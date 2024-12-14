@@ -65,3 +65,63 @@ console.log(moreMixedArray);
 
 let userTuple: [string, boolean, number] = ["Nuredin Bedru", true, 22];
 console.log("User : ", userTuple);
+
+// object
+
+type User = {
+  username: string;
+  email?: string;
+  password: string;
+  hoobies: string[];
+  scores: number[];
+};
+
+let userOne: User = {
+  username: "Monkey D Luffy",
+  email: "email@email.com",
+  password: "password",
+  hoobies: ["Watching Anime", "Reading Manga and Books"],
+  scores: [87.4, 75],
+};
+let userTwo: User = {
+  username: "Naruto Uzumaki",
+  password: "password",
+  hoobies: ["Watching Anime", "Reading Manga and Books"],
+  scores: [87.4, 75],
+};
+function notify(user: User): string {
+  let message: string = user.email
+    ? `User With E-mail ${user.email} Registed as ${user.username} Successfully !!!`
+    : `User Is Not Registed Yet !!!`;
+
+  return message;
+}
+
+let userThree: User = {
+  username: "No Name",
+  email: "no enail",
+  password: "no password",
+  hoobies: [],
+  scores: [],
+};
+
+let users: User[] = [userOne, userTwo, userThree];
+
+for (let user of users) {
+  console.log(notify(user));
+}
+
+type Anime = {
+  name: string | undefined;
+  rating: number | undefined;
+  isCompleted: boolean | false;
+  voiceActors: User[] | "No Voice Actors";
+};
+
+let onePeice: Anime = {
+  name: "Onepeice",
+  rating: 9.7,
+  isCompleted: false,
+  voiceActors: [userOne, userThree],
+};
+console.log(onePeice);

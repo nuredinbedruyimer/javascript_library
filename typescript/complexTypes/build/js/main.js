@@ -51,3 +51,40 @@ console.log(moreMixedArray);
 // We can copy the less mixed Array To The more Mixed It Is Possoble
 let userTuple = ["Nuredin Bedru", true, 22];
 console.log("User : ", userTuple);
+let userOne = {
+    username: "Monkey D Luffy",
+    email: "email@email.com",
+    password: "password",
+    hoobies: ["Watching Anime", "Reading Manga and Books"],
+    scores: [87.4, 75],
+};
+let userTwo = {
+    username: "Naruto Uzumaki",
+    password: "password",
+    hoobies: ["Watching Anime", "Reading Manga and Books"],
+    scores: [87.4, 75],
+};
+function notify(user) {
+    let message = user.email
+        ? `User With E-mail ${user.email} Registed as ${user.username} Successfully !!!`
+        : `User Is Not Registed Yet !!!`;
+    return message;
+}
+let userThree = {
+    username: "No Name",
+    email: "no enail",
+    password: "no password",
+    hoobies: [],
+    scores: [],
+};
+let users = [userOne, userTwo, userThree];
+for (let user of users) {
+    console.log(notify(user));
+}
+let onePeice = {
+    name: "Onepeice",
+    rating: 9.7,
+    isCompleted: false,
+    voiceActors: [userOne, userThree],
+};
+console.log(onePeice);

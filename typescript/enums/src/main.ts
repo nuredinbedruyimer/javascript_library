@@ -27,7 +27,7 @@ let fetchPosts = async (): Promise<ApiResponse> => {
     let response = await fetch("https://jsonplaeholder.typicode.com/posts");
     let data = await response.json();
 
-    apiResponse.data = data ? data : [];
+    apiResponse.data = data ? (data as Post[]) : [];
     apiResponse.status = response.ok
       ? HtteRequesttatus.SUCCESS
       : HtteRequesttatus.ERROR;

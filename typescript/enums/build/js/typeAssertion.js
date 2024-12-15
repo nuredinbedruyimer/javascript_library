@@ -11,9 +11,11 @@ var UserRolesType;
 })(UserRolesType || (UserRolesType = {}));
 let userFromAPiCall = '{"userId": 1, "userName": "Nuredin", "role":"Admin"}';
 let jsonUser = JSON.parse(userFromAPiCall);
+jsonUser.role = UserRolesType.Viewer;
 let userData = {
     userId: jsonUser.userId,
     userName: jsonUser.userName,
     role: jsonUser.role,
 };
 console.log(userData);
+console.log(jsonUser.email);

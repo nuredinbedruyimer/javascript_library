@@ -18,7 +18,7 @@ type ApiResponse = {
   error?: string;
 };
 
-let fetchPosts = async (): Promise<ApiResponse> => {
+export const fetchPosts = async (): Promise<ApiResponse> => {
   let apiResponse: ApiResponse = {
     status: HtteRequesttatus.LOADING,
   };

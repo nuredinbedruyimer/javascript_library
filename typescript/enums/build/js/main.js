@@ -1,4 +1,3 @@
-"use strict";
 // Integer Enum
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -15,7 +14,7 @@ var HtteRequesttatus;
     HtteRequesttatus["SUCCESS"] = "Success";
     HtteRequesttatus["ERROR"] = "Failure";
 })(HtteRequesttatus || (HtteRequesttatus = {}));
-let fetchPosts = () => __awaiter(void 0, void 0, void 0, function* () {
+export const fetchPosts = () => __awaiter(void 0, void 0, void 0, function* () {
     let apiResponse = {
         status: HtteRequesttatus.LOADING,
     };

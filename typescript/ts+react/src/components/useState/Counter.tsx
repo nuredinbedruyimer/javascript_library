@@ -4,7 +4,13 @@ const Counter = () => {
   return (
     <div>
       <h3>{count}</h3>
-      <button onClick={() => setCount((count) => count + 1)}>Add</button>
+      <button className="btn" onClick={() => setCount((count) => count + 1)}>
+        Add
+      </button>
+
+      <button className="btn" onClick={() => setCount(0)}>
+        Reset
+      </button>
     </div>
   );
 };

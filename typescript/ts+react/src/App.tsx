@@ -1,8 +1,10 @@
 import "./App.css";
+import Counter from "./components/useEffect/Counter";
+import PostsList from "./components/useEffect/PostsList";
 
-import Counter from "./components/useState/Counter";
-import UseStateWithArray from "./components/useState/UseStateWithArray";
-import UseStateWithObject from "./components/useState/UseStateWithObject";
+// import Counter from "./components/useState/Counter";
+// import UseStateWithArray from "./components/useState/UseStateWithArray";
+// import UseStateWithObject from "./components/useState/UseStateWithObject";
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
       <h1>Ts + React</h1>
       {/* <Counter /> */}
       {/* <UseStateWithObject /> */}
-      <UseStateWithArray />
+      {/* <UseStateWithArray /> */}
+      {/* <Counter /> */}
+      <PostsList />
     </div>
   );
 }
